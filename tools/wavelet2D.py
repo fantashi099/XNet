@@ -1,4 +1,5 @@
 import numpy as np
+from tqdm import tqdm
 from PIL import Image
 import pywt
 import argparse
@@ -19,7 +20,7 @@ if __name__ == '__main__':
     if not os.path.exists(args.H_path):
         os.mkdir(args.H_path)
 
-    for i in os.listdir(args.image_path):
+    for i in tqdm(os.listdir(args.image_path)):
         image_path = os.path.join(args.image_path, i)
         L_path = os.path.join(args.L_path, i)
         H_path = os.path.join(args.H_path, i)
